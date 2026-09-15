@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+services:
+  - type: web
+    name: bloodbridge-java
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: postgres
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=65 -XX:+UseSerialGC -Xss512k"
+      - key: FAMILY_ASSISTANCE_ENABLED
+        value: "true"
+      - key: ADMIN_USERNAME
+        value: adminysss
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: SITE_ORIGIN
+        sync: false
+# Email delivery is optional. Add RESEND_API_KEY and MAIL_FROM later
+# after configuring a verified sender. Family requests save without email.

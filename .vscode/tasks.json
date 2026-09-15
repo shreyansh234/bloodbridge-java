@@ -1,0 +1,1 @@
+{"version":"2.0.0","tasks":[{"label":"BloodBridge: run locally","type":"shell","command":"bash run-local.sh","windows":{"command":".\\run-local.bat"},"problemMatcher":[],"isBackground":true},{"label":"BloodBridge: run tests","type":"shell","command":"mvn test","group":"test","problemMatcher":[]}]}
